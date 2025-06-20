@@ -32,6 +32,13 @@ public class BookingService {
             throw new BadRequestException("Hai già prenotato questo evento");
         }
 
+        boolean alreadyBookedSameDate = bookingRepo.findByUser(user).stream()
+                .anyMatch(b -> b.getEvent().getDate().isEqual(event.getDate()));
+
+        if (alreadyBookedSameDate) {
+            throw new BadRequestException("Hai già una prenotazione per un evento nella stessa data.");
+        }
+
         event.setAvailableSeats(event.getAvailableSeats() - 1);
 
         Booking booking = Booking.builder()
