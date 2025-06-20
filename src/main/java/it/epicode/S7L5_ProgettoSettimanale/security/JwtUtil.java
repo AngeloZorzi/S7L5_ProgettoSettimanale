@@ -12,7 +12,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private final String SECRET = "superSecretKeysuperSecretKeysuperSecretKey!";
+    private final String SECRET = "kp93jf92JSSd7s2Kw8xuT7vu32nDaxrLpqBEMo39slAghz71K2DfEXLOeiwPMqR!";
     private final long EXPIRATION = 1000 * 60 * 60 * 24;
 
     private SecretKey getSigningKey() {
